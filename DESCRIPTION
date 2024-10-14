@@ -1,0 +1,31 @@
+Package: hierBayes
+Title: Hierarchical Bayesian Models for Shrinkage and Regularization
+Version: 0.0.0.9000
+Authors@R: 
+    person("Sophie", "Shan", , "sophshan@unc.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This package provides functions for hierarchical Bayesian shrinkage 
+    models and regularization techniques, with support for both main effects and 
+    interaction terms. Includes tools for generating simulation data, performing 
+    shrinkage estimation, and visualizing results using various statistical methods.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports: 
+    MASS,
+    dplyr,
+    tidyverse,
+    corrplot,
+    RColorBrewer,
+    truncdist,
+    TeachingDemos,
+    bayestestR,
+    ggplot2,
+    gtools,
+    truncnorm,
+    GIGrvg,
+    glmnet,
+    hierNet,
+    bayesreg,
+    MCMCpack
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
