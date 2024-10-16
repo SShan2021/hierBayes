@@ -34,6 +34,9 @@
 #' results <- validation_function(input, output, B0, PostB)
 #' print(results)
 #'
+#' @importFrom dplyr "%>%" right_join filter mutate_all full_join
+#' @importFrom tibble rownames_to_column
+#' @importFrom stats glm coef
 #' @export
 
 validation_function <- function(input, #X
