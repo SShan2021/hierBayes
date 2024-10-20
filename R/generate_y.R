@@ -7,6 +7,7 @@
 #'
 #' @param df Dataframe or matrix. The dataset of predictor variables for which the response variable is generated.
 #' @param beta Numeric vector. The vector of coefficients corresponding to the predictor variables.
+#' @param seed Integer. A seed value for random data generation to ensure reproducibility. Default is 123.
 #'
 #' @return A binary response vector generated from a Bernoulli distribution.
 #'
@@ -20,12 +21,13 @@
 #' # Example usage
 #' df <- matrix(rnorm(100), nrow = 10, ncol = 10)
 #' beta <- rnorm(10)
-#' y <- generate_y(df, beta)
+#' y <- generate_y(df, beta, seed = 1)
 #'
 #' @export
 
 generate_y <- function(df,
-                       beta){
+                       beta,
+                       seed = 123){
 
   #make the data into a matrix
   X <- as.matrix(df)
@@ -36,6 +38,9 @@ generate_y <- function(df,
 
   #pass through inv-logit function
   pr <- 1 / (1 + exp(-log_odds))
+
+  #set seed
+  set.seed(seed)
 
   #bernoulli response variable
   y <- rbinom(nrow(df), 1, pr)
