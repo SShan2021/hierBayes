@@ -88,7 +88,7 @@ set_antihier_pairwise_values <- function(main_effects,
   
   # Convert the result list to a data frame with columns "term" and "value"
   result_df <- data.frame(
-    term = names(result),
+    metric = names(result),
     value = unlist(result),
     stringsAsFactors = FALSE
   )
