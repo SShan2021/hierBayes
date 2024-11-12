@@ -83,7 +83,7 @@ summarize_results <- function(beta.hier, #bayesian shrinkage w/ hier prior
   nsim1 <- as.numeric(table(beta.hier$Iter)[1])
   nsim2 <- as.numeric(table(beta.nonhier$Iter)[1])
   nsim3 <- as.numeric(table(beta.hier_hs$Iter)[1])
-  nsim4 <- dim(horseshoe_postmean)[1]/56
+  nsim4 <- dim(horseshoe_postmean)[1]/(length(cb)+1)
 
   #for Bayesian
   beta.hier$sim <- rep(1:nsim1, each = 50000)
@@ -110,8 +110,8 @@ summarize_results <- function(beta.hier, #bayesian shrinkage w/ hier prior
   }
 
   if(nsim4 > nsim){
-    horseshoe_postmean <- horseshoe_postmean[1:(nsim*56),]
-    horseshoe_95CI <- horseshoe_95CI[1:(nsim*56), ]
+    horseshoe_postmean <- horseshoe_postmean[1:(nsim*(length(cb)+1)),]
+    horseshoe_95CI <- horseshoe_95CI[1:(nsim*(length(cb)+1)), ]
   }
 
   ############################
@@ -263,8 +263,8 @@ summarize_results <- function(beta.hier, #bayesian shrinkage w/ hier prior
   #Horseshoe Prior
   ############
   #add the sim
-  horseshoe_postmean$sim <- rep(1:nsim, each = 56)
-  horseshoe_95CI$sim <- rep(1:nsim, each = 56)
+  horseshoe_postmean$sim <- rep(1:nsim, each = length(cb)+1)
+  horseshoe_95CI$sim <- rep(1:nsim, each = length(cb)+1)
 
   #add the metric (coef names )
   metric <- c(cb, "Intercept")
